@@ -1,6 +1,2 @@
-bower_components/
-node_modules/
-
-!bootstrap.css
-!bower_components/jquery/dist/jquery.min.js
-!node_modules/bootstrap/dist/js/bootstrap.min.js
+/bower_components/*
+/node_modules/*
