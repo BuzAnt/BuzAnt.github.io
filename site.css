@@ -1,0 +1,25 @@
+.site-header {
+	height: 50px;
+}
+
+.story-small {
+	height: 50px;
+	border-color: green;
+	border-width: 1px;
+	border-style: dashed
+}
+
+.unregistered-tutor-content {
+	height: 300px;
+	margin: 30px;
+	border-width: 1px;
+	border-style: dashed
+}
+
+.tutor-content {
+	height: 600px;
+	margin: 30px;
+	border-width: 1px;
+	border-style: dashed
+
+}

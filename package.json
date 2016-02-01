@@ -1,0 +1,26 @@
+{
+  "name": "BuzAnt.github.io",
+  "version": "0.0.0",
+  "description": "Tutor Web Frontend UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BuzAnt/BuzAnt.github.io.git"
+  },
+  "keywords": [
+    "tutor"
+  ],
+  "author": "xiangke.cao@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuzAnt/BuzAnt.github.io/issues"
+  },
+  "homepage": "https://github.com/BuzAnt/BuzAnt.github.io",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "h5bp": "^0.1.4"
+  }
+}
