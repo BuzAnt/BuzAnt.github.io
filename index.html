@@ -14,7 +14,11 @@
   <div class="row site-header">
     <div class="col-xs-2 logo">logo w/ animation</div>
     <div class="col-xs-7 story-small">user stories showcase</div>
-    <div class="col-xs-3"><button data-toggle="modal" data-target="#login-modal">Login</button> / <button>Register</button></div>
+    <div class="col-xs-3">
+      <button data-toggle="modal" data-target="#login-modal">Login</button>
+       / 
+      <button data-toggle="modal" data-target="#register-modal">Register</button>
+    </div>
   </div>
 
   <div class="content unregistered-tutor-content">
@@ -29,34 +33,92 @@
   <div class="footer">
   </div>
 
-  <!-- Modal -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Log-in Interface</h4>
-      </div>
-      <div class="modal-body">
-        Username <input id='user' placeholder="eg. xiangke.cao@gmail.com" /><br />
-        Password <input id='password' />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" onclick="window.location='spa?user=' + $('#user').val().toLowerCase() + '#/tutor'">Login</button>
+  <!-- Login Modal -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Log-in Interface</h4>
+        </div>
+        <div class="modal-body">
+          Username <input id='user' placeholder="eg. xiangke.cao@gmail.com" /><br />
+          Password <input id='password' />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Register Interface</h4>
+        </div>
+        <div class="modal-body">
+          Username <input id='newUserEmail' placeholder="eg. xiangke.cao@gmail.com" /><br />
+          Password <input id='newUserPassword' /><br />
+          Role <input type="radio" name="newUserRole" value="student">Student
+               <input type="radio" name="newUserRole" value="tutor" checked> Tutor
+               <input type="radio" name="newUserRole" value="both"> Both
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="registerUser()">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="app.js"></script> -->
+
+<script type="text/javascript">
+  function login() {
+    window.location='spa?user=' + $('#user').val().toLowerCase() + '#/tutor';
+  }
+  function registerUser() {
+    var newUser = {};
+    newUser.email = $('#newUserEmail').val();
+    newUser.password = $('#newUserPassword').val();
+    newUser.role = $('input:radio[name=newUserRole]:checked').val();
+    newUser.login = 'migrating';
+    debugger;
+    $.post( "https://buzant-node.herokuapp.com/users", newUser)
+      .done(function( response ) {
+        debugger;
+        console.log( "Data Loaded: " + response.data );
+        if(response.data.role === "tutor") {
+          window.location='spa?user=' + newUser.email.toLowerCase() + '#/tutor';
+        } else {
+          window.location='spa?user=' + newUser.email.toLowerCase() + '#/student';
+        }
+    });
+    $.ajax({
+      url: "https://buzant-node.herokuapp.com/users",
+      data: newUser,
+      type: "POST",
+      beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'ogGM_pzr3ybW');},
+      success: function() {
+        debugger;
+        console.log( "Data Loaded: " + response.data );
+        if(response.data.role === "tutor") {
+          window.location='spa?user=' + newUser.email.toLowerCase() + '#/tutor';
+        } else {
+          window.location='spa?user=' + newUser.email.toLowerCase() + '#/student';
+        }
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
