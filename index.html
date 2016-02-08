@@ -90,13 +90,13 @@
     newUser.email = $('#newUserEmail').val();
     newUser.password = $('#newUserPassword').val();
     newUser.role = $('input:radio[name=newUserRole]:checked').val();
-    debugger;
     $.ajax({
       url: "https://buzant-node.herokuapp.com/users",
       data: newUser,
       type: "POST",
       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'ogGM_pzr3ybW');},
-      success: function(createdUser) {
+      success: function(data) {
+        var createdUser = JSON.parse(data);
         debugger;
         console.log( "Data Loaded: " + createdUser );
         if(createdUser.role === "tutor") {
