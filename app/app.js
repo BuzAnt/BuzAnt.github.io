@@ -2,8 +2,10 @@
 angular.module('buzAnt', ['ngAnimate','ui.bootstrap','ui.router','mwl.calendar'])
   .constant('appConfig', {
     version: '0.0.1',
+    API_NODE_KEY: 'ogGM_pzr3ybW',
     calendarView: 'week'
   });
+
 
 angular.module('buzAnt').config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("tutor");  //default state url
@@ -30,4 +32,8 @@ angular.module('buzAnt').config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "app/partials/tutor.course.html",
       controller: 'TutorCourseController'
     });
+})
+
+.run(function($http, appConfig) {
+  $http.defaults.headers.common.Authorization = appConfig.API_NODE_KEY;
 });

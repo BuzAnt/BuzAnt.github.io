@@ -1,7 +1,7 @@
 <div class="row site-header">
   <div class="col-xs-2 logo">logo w/ animation</div>
     <div class="col-xs-7 story-small">
-      <div ng-if="user.unreadMessages">
+      <div ng-if="user.messages && user.unreadMessages">
         <i ng-if="user.unreadMessages.length>0" class="glyphicon glyphicon-envelope"></i>
          ({{user.messages.length}}) unread messages
       </div>
@@ -11,7 +11,10 @@
       </div>
     </div>
     <div class="col-xs-3">
-      <div class="user-actions-bar"><i class="glyphicon glyphicon-user"></i></div>
+      <div class="user-actions-bar">
+        <i class="glyphicon glyphicon-user"></i>
+        <span>{{user.name}}</span>
+      </div>
       <div ng-if="user.rating">
         <i class="glyphicon glyphicon-star"></i>
         <i class="glyphicon" ng-class="user.rating>=2?'glyphicon-star':'glyphicon-star-empty'"></i>
