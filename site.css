@@ -21,5 +21,8 @@
 	margin: 30px;
 	border-width: 1px;
 	border-style: dashed
+}
 
+.my-schedule, .my-paycheck {
+	margin-top: 20px;
 }

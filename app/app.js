@@ -1,7 +1,8 @@
 'use strict';
-angular.module('buzAnt', ['ui.bootstrap','ui.router','angular-bootstrap-calendar'])
+angular.module('buzAnt', ['ngAnimate','ui.bootstrap','ui.router','mwl.calendar'])
   .constant('appConfig', {
-    version: '0.0.1'
+    version: '0.0.1',
+    calendarView: 'week'
   });
 
 angular.module('buzAnt').config(function($stateProvider, $urlRouterProvider) {
