@@ -38,12 +38,12 @@
         <h4 class="modal-title" id="myModalLabel">Log-in Interface</h4>
       </div>
       <div class="modal-body">
-        Username <input /><br />
-        Password <input />
+        Username <input id='user' placeholder="eg. xiangke.cao@gmail.com" /><br />
+        Password <input id='password' />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" onclick="window.location='spa#/tutor'">Login</button>
+        <button type="button" class="btn btn-primary" onclick="window.location='spa?user=' + $('#user').val().toLowerCase() + '#/tutor'">Login</button>
       </div>
     </div>
   </div>

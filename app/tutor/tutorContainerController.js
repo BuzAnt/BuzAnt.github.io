@@ -17,20 +17,17 @@ angular.module('buzAnt').controller('TutorContainerController', function($scope,
       }
     ],
     "rating": 3
-
-
   }
+
 
   
-
-  $http.get('https://buzant-node.herokuapp.com/users?email=' + 'xiangke.cao@gmail.com')//user.email) //xiangke.cao@gmail.com
+  var userEmail = window.location.search.split("=")[1]
+  $http.get('https://buzant-node.herokuapp.com/users?email=' + userEmail)
     .then(function(response) {
-      debugger;
       var users = response.data;
+      if ($scope.user && $scope.user.messages && $scope.user.messages.length > 0) {
+        $scope.user.unreadMessages = $scope.user.messages.filter( message => message.read === false );
+      }
       $scope.user = users[0]  //TODO: handle duplicate emails
     })
-
-  if ($scope.user && $scope.user.messages && $scope.user.messages.length > 0) {
-    $scope.user.unreadMessages = $scope.user.messages.filter( message => message.read === false );
-  }
 });
