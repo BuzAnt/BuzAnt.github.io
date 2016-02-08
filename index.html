@@ -91,28 +91,18 @@
     newUser.password = $('#newUserPassword').val();
     newUser.role = $('input:radio[name=newUserRole]:checked').val();
     debugger;
-    $.post( "https://buzant-node.herokuapp.com/users", newUser)
-      .done(function( response ) {
-        debugger;
-        console.log( "Data Loaded: " + response.data );
-        if(response.data.role === "tutor") {
-          window.location='spa?user=' + newUser.email.toLowerCase() + '#/tutor';
-        } else {
-          window.location='spa?user=' + newUser.email.toLowerCase() + '#/student';
-        }
-    });
     $.ajax({
       url: "https://buzant-node.herokuapp.com/users",
       data: newUser,
       type: "POST",
       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'ogGM_pzr3ybW');},
-      success: function(response) {
+      success: function(createdUser) {
         debugger;
-        console.log( "Data Loaded: " + response.data );
-        if(response.data.role === "tutor") {
-          window.location='spa?user=' + newUser.email.toLowerCase() + '#/tutor';
+        console.log( "Data Loaded: " + createdUser );
+        if(createdUser.role === "tutor") {
+          window.location='spa?user=' + createdUser.email.toLowerCase() + '#/tutor';
         } else {
-          window.location='spa?user=' + newUser.email.toLowerCase() + '#/student';
+          window.location='spa?user=' + createdUser.email.toLowerCase() + '#/student';
         }
       }
     });
