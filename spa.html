@@ -6,52 +6,26 @@
   <title>BuzAnt</title>
   <meta name="description" content="BuzAnt Web Access site">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="vendor/angular-bootstrap-calendar/angular-bootstrap-calendar-tpls.js">
   <link rel="stylesheet" href="site.css">
 </head>
 <body ng-app="buzAnt">
+
 <div class="container-fluid">
-  <div class="row site-header">
-    <div class="col-xs-2 logo">logo w/ animation</div>
-    <div class="col-xs-7 story-small">
-      <div>
-        <i class="glyphicon glyphicon-envelope"> (2) unread messages</i>
-      </div>
-      <div>
-        <i class="glyphicon glyphicon-exclamation-sign"> alert message</i>
-      </div>
-    </div>
-    <div class="col-xs-3">
-      <div class="user-actions-bar"><i class="glyphicon glyphicon-user"></i></div>
-      <div>
-        <i class="glyphicon glyphicon-star"></i>
-        <i class="glyphicon glyphicon-star"></i>
-        <i class="glyphicon glyphicon-star-empty"></i>
-        <i class="glyphicon glyphicon-star-empty"></i>
-        <i class="glyphicon glyphicon-star-empty"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="content tutor-content" style="">
-    <div class=my-schedule>
-      <p>my schedule</p>
-      <p>link to edit open detailed schedule</p>
-    </div>
-    <div class=my-schedule>my paycheck</div>
-  
-  </div>
-  <div class="footer">
-  </div>
-</div>
-
+  <div ui-view></div>
 </div>
 
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-ui-router/angular-ui-router.js"></script>
+<script src="vendor/moment/moment.min.js"
+<script src="vendor/angular-bootstrap-calendar/angular-bootstrap-calendar-tpls.js"></script>
 <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-<script src="app.js"></script>
+<script src="app/app.js"></script>
+<script src="app/tutor/tutorMainController.js"></script>
+<script src="app/tutor/tutorContainerController.js"></script>
+<script src="app/tutor/tutorCourseController.js"></script>
 
 </body>
 </html>
