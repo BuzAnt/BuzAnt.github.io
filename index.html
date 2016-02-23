@@ -7,7 +7,7 @@
   <meta name="description" content="BuzAnt Web Access site">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body ng-app="buzAnt">
 <div class="container-fluid">
@@ -15,7 +15,10 @@
     <div class="col-xs-2 logo">
       <img src="/assets/img/pencil-ant.jpg" alt="a ant clip-art as site logo" height="50px;">
     </div>
-    <div class="col-xs-7 story-small">user stories showcase</div>
+    <div class="col-xs-7 story-small">
+      <img width="16" height="16" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIlSURBVDhPbZFdSFNhGMffm+666cIgukgkQq1MI1oJEuht9gFFGUxCrdmg1ZQkKLFYH1vfW6mhGcOCYBmbiY1kBGG1s4sKc3FmtdKYozULGnn97zzPOedttf3ht/PsfZ7n944dgSLp/j6Ao6kr8GSGGVvaw2fFUiBY+qEB/uwYcrlfWFz8LRnKhrj3f6SgI+ODSGyFM3Wdl/MhAT3pV9EMzZqRAmoQL7+9RnYhix8/F5j8mnrmnBkWBOcishFPqUin5yUkMOup+fdyjnakYCI5CTG9hbn/6TFmZ78UxZ8MSgHtsGBmJoERNQzxahNjiVqhJhOgc4IWzbr63QH9Ik3w8OMTPhNKTEFPTPsDx6sltc+tGI9H5CLVJOZL3m5myam4D7QrFCWKdYFGCH9lASX3ahn+HlgPMboBYqKGKQ836oLOwFkIVxnE6VKdrlUQ7St1qDahnns1hG8NRH85xGAFOiYvQtiGTkDsWa6zq4SpaarA7iMWNDvqmJ12C6paKrHEaohPakJNdGzKrb+F0qYqiPplvHjLsx+hwXYMXHVCGe1i+jwOjNw+hF73Pmw8uBaiZQXKbm7T3wJ/amlz2+Hva0U80g312Rk4mhuQU71M6946fH5xjqEL2nodxlaegBJ7eo0FX5ULcHXukIKe49uReXOZBZFHLmNazz8CSuiOjSVz0fMsImiRzsLDdmPqbwoElOCDG7jrdaL/0mGG6rGA1+jmB/gDCrj4gPVG1ygAAAAASUVORK5CYII=" />
+      <span>Showcasing our tutors and their stories with ratation</span>
+    </div>
     <div class="col-xs-3">
       <button data-toggle="modal" data-target="#login-modal">Login</button>
        /
@@ -44,8 +47,10 @@
           <h4 class="modal-title" id="myModalLabel">Log-in Interface</h4>
         </div>
         <div class="modal-body">
-          Username <input id='user' placeholder="eg. xiangke.cao@gmail.com" /><br />
-          Password <input id='password' />
+          <form autocomplete="on">
+            Username <input id='user' placeholder="eg. xiangke.cao@gmail.com" /><br />
+            Password <input id='password' />
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

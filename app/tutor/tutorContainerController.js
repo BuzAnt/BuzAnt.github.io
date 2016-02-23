@@ -1,5 +1,5 @@
-angular.module('buzAnt').controller('TutorContainerController', function($scope,$http,appConfig) {
-  var dummyUser = {
+angular.module('buzAnt').controller('TutorContainerController', function($scope,$http,appConfig,$state) {
+  var dummyUser = {  //TODO： move this to test cases
     "email": "xiangke.cao@gmail.com",
     "name": "Shawn",
     "messages": [
@@ -19,8 +19,6 @@ angular.module('buzAnt').controller('TutorContainerController', function($scope,
     "rating": 3
   }
 
-
-  
   var userEmail = window.location.search.split("=")[1]
   $http.get('https://buzant-node.herokuapp.com/users?email=' + userEmail)
     .then(function(response) {
@@ -29,5 +27,13 @@ angular.module('buzAnt').controller('TutorContainerController', function($scope,
         $scope.user.unreadMessages = $scope.user.messages.filter( message => message.read === false );
       }
       $scope.user = users[0]  //TODO: handle duplicate emails
-    })
+    });
+
+  $scope.logOut = function(user) {
+    window.location='/';  //TODO: user user.email for session management
+  };
+  $scope.manageProfile = function(user) {
+    //TODO: ?
+    $state.go('tutorCourse');
+  }
 });

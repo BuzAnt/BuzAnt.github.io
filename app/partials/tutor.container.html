@@ -11,9 +11,13 @@
       </div>
     </div>
     <div class="col-xs-3">
-      <div class="user-actions-bar">
+      <div ng-click="userPopover=!userPopover" class="user-actions-bar hvr-grow">
         <i class="glyphicon glyphicon-user"></i>
         <span>{{user.name}}</span>
+        <div ng-show="userPopover">
+          <button ng-click="manageProfile(user)">My account</button>
+          <button ng-click="logOut(user)">Sign out</button>
+        </div>
       </div>
       <div ng-if="user.rating">
         <i class="glyphicon glyphicon-star"></i>
@@ -21,6 +25,7 @@
         <i class="glyphicon" ng-class="user.rating>=3?'glyphicon-star':'glyphicon-star-empty'"></i>
         <i class="glyphicon" ng-class="user.rating>=4?'glyphicon-star':'glyphicon-star-empty'"></i>
         <i class="glyphicon" ng-class="user.rating>=5?'glyphicon-star':'glyphicon-star-empty'"></i>
+        <span></span>
       </div>
     </div>
   </div>
