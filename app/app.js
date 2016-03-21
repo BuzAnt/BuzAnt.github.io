@@ -22,12 +22,12 @@ angular.module('buzAnt').config(function($stateProvider, $urlRouterProvider) {
       controller: 'TutorMainController'
     })
     .state('tutorCalendar', {
-      parent: 'tutor.main',
+      parent: 'tutorMain',
       url: '/calendar',
       templateUrl: "app/partials/tutor.main.calendar.html"
     })
     .state('tutorCourse', {
-      parent: 'tutor.container',
+      parent: 'tutorContainer',
       url: "/course",
       templateUrl: "app/partials/tutor.course.html",
       controller: 'TutorCourseController'
