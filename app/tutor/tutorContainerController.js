@@ -32,8 +32,12 @@ angular.module('buzAnt').controller('TutorContainerController', function($scope,
   $scope.logOut = function(user) {
     window.location='/';  //TODO: user user.email for session management
   };
-  $scope.manageProfile = function(user) {
+  $scope.manageCourse = function(user) {
     //TODO: ?
     $state.go('tutorCourse');
-  }
+  };
+  $scope.manageProfile = function(user) {
+    //TODO: ?
+    $state.go('userProfile');
+  };
 });

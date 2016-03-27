@@ -15,7 +15,8 @@
         <i class="glyphicon glyphicon-user"></i>
         <span>{{user.name}}</span>
         <div ng-show="userPopover">
-          <button ng-click="manageProfile(user)">My account</button>
+          <button ng-click="manageProfile(user)">User Profile</button>
+          <button ng-click="manageCourse(user)">My Course</button>
           <button ng-click="logOut(user)">Sign out</button>
         </div>
       </div>
