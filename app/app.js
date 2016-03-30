@@ -17,7 +17,7 @@ angular.module('buzAnt').config(function($stateProvider, $urlRouterProvider) {
     })
     .state('userProfile', {
       parent: 'tutorContainer',
-      url: "/course",
+      url: "/profile",
       templateUrl: "app/partials/user.profile.html",
       controller: 'UserProfileController'
     })

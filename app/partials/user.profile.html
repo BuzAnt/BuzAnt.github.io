@@ -1,1 +1,21 @@
-<div>user .profile .html</div>
+<div>user.profile.html</div>
+<div>
+  <form novalidate class="simple-form">
+    <hr />
+    Name: <input type="text" ng-model="user.name" placeholder="Full name" /><br />
+    Address: <input type="text" ng-model="user.address" placeholder="Full address" /><br />
+    Tel: <input type="text" ng-model="user.telBussiness" placeholder="bussiness" />
+      <input type="text" ng-model="user.telPersonal" placeholder="personal" /><br />
+    E-mail: <input type="email" ng-model="user.email" placeholder="email address"/><br />
+    Skype ID: <input type="text" ng-model="user.skypeId" placeHolder="Skype ID"/><br />
+    Gender: <input type="radio" ng-model="user.gender" value="male" />male
+      <input type="radio" ng-model="user.gender" value="female" />female<br />
+    Website: <input type="text" ng-model="user.website" placeHolder="Bussiness website"/><br />
+    Student Review Rating: <span>{{user.rating}}</span> <a href="rating-rule.html">how to improve my rating?</a><br />
+    <hr />
+    <input type="button" ng-click="resetProfile(user)" value="Reset" />
+    <input type="submit" ng-click="saveProfile(user)" value="Save" />
+  </form>
+  <pre>user = {{user | json}}</pre>
+  <pre>backend = {{backend | json}}</pre>
+</div>
